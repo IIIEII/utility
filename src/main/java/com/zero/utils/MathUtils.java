@@ -3,6 +3,11 @@ package com.zero.utils;
 import java.math.BigDecimal;
 
 public class MathUtils {
+
+	public static int add2(int v1, int v2) {
+		return v1 + v2;
+	}
+
 	/**
 	 * 提供精确的加法运算。
 	 * 

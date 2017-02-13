@@ -3,4 +3,13 @@
   <groupId>com.zero</groupId>
   <artifactId>utility</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <!-- Minimal supported version is 4.7 -->
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
