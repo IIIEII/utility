@@ -69,6 +69,11 @@ import com.zero.utils.exceptions.UnreachableCodeException;
  * @author renhui
  */
 public final class Assert {
+
+    public static <T> T assertNotNull22(T object) {
+        return assertNotNull(object, null, null, (Object[]) null);
+    }
+
     /** 确保对象不为空，否则抛出<code>IllegalArgumentException</code>。 */
     public static <T> T assertNotNull(T object) {
         return assertNotNull(object, null, null, (Object[]) null);
@@ -189,7 +194,7 @@ public final class Assert {
         throw UNSUPPORTED_OPERATION.newInstance(getMessage(message, args,
                                                            "[Assertion failed] - unsupported operation or unimplemented function"));
     }
-    
+
     /**
 	 * Assert that the given String is not empty; that is,
 	 * it must not be <code>null</code> and not the empty String.
@@ -215,7 +220,7 @@ public final class Assert {
 		hasLength(text,
 				"[Assertion failed] - this String argument must have length; it must not be null or empty");
 	}
-	
+
 	/**
 	 * Assert that the given String has valid text content; that is, it must not
 	 * be <code>null</code> and must contain at least one non-whitespace character.
@@ -241,7 +246,7 @@ public final class Assert {
 		hasText(text,
 				"[Assertion failed] - this String argument must have text; it must not be null, empty, or blank");
 	}
-	
+
 	/**
 	 * Assert that <code>superType.isAssignableFrom(subType)</code> is <code>true</code>.
 	 * <pre class="code">Assert.isAssignable(Number.class, myClass);</pre>
@@ -287,42 +292,42 @@ public final class Assert {
     /** Assertion错误类型。 */
     public static enum ExceptionType {
         ILLEGAL_ARGUMENT {
-            
+
             RuntimeException newInstance(String message) {
                 return new IllegalArgumentException(message);
             }
         },
 
         ILLEGAL_STATE {
-            
+
             RuntimeException newInstance(String message) {
                 return new IllegalStateException(message);
             }
         },
 
         NULL_POINT {
-            
+
             RuntimeException newInstance(String message) {
                 return new NullPointerException(message);
             }
         },
 
         UNREACHABLE_CODE {
-            
+
             RuntimeException newInstance(String message) {
                 return new UnreachableCodeException(message);
             }
         },
 
         UNEXPECTED_FAILURE {
-            
+
             RuntimeException newInstance(String message) {
                 return new UnexpectedFailureException(message);
             }
         },
 
         UNSUPPORTED_OPERATION {
-            
+
             RuntimeException newInstance(String message) {
                 return new UnsupportedOperationException(message);
             }
